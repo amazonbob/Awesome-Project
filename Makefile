@@ -1,0 +1,26 @@
+NAME    = awesome
+CC      = gcc
+CFLAGS  = -std=c99 -Wall
+FILES   = main
+DIR_SRC = ./src
+DIR_OBJ = ./obj
+DIR_BIN = ./bin
+OBJ     = $(patsubst %, $(DIR_OBJ)/%.o, $(FILES))
+
+$(DIR_OBJ)/%.o : $(DIR_SRC)/%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+build: $(OBJ)
+	$(CC) $(CFLAGS) -o $(DIR_BIN)/$(NAME) $(OBJ)
+
+.PHONY:
+
+clean:
+	rm -vf $(DIR_BIN)/$(NAME) $(OBJ)
+
+install:
+	cp -f $(DIR_BIN)/$(NAME) /usr/local/bin/
+	PATH=${PATH}:/usr/local/bin
+
+uninstall:
+	rm -f /usr/local/bin/$(NAME)
