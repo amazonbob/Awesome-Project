@@ -1,6 +1,6 @@
 NAME    = awesome
 CC      = gcc
-CFLAGS  = -std=c99 -Wall
+CFLAGS  = -std=c99 -O2 -Wall
 FILES   = main
 DIR_SRC = ./src
 DIR_OBJ = ./obj
