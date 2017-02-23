@@ -20,7 +20,7 @@ clean:
 
 install:
 	cp -f $(DIR_BIN)/$(NAME) /usr/local/bin/
-    if [ echo ${PATH} | grep -q ":/usr/local/bin" ]; then PATH=${PATH}:/usr/local/bin; fi
+	if [ echo ${PATH} | grep -q ":/usr/local/bin" ]; then PATH=${PATH}:/usr/local/bin; fi
 
 uninstall:
 	rm -f /usr/local/bin/$(NAME)
